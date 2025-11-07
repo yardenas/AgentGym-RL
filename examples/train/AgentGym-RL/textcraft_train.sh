@@ -12,6 +12,7 @@ export WANDB_BASE_URL=https://api.bandw.top
 env_server_url="http://127.0.0.1:36001"
 
 # start training
+wandb login xxx
 
 pure_agent_model_name="Qwen2.5-7B-Instruct"
 agent_model_path="Qwen/${pure_agent_model_name}"
@@ -60,7 +61,7 @@ HYDRA_FULL_ERROR=1 PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True WANDB_MODE=o
     actor_rollout_ref.rollout.rollout_log_dir=${model_save_path}/executer_logs \
     algorithm.kl_ctrl.kl_coef=${kl_coef} \
     trainer.default_local_dir=${model_save_path} \
-    trainer.project_name=xxx \
+    trainer.project_name=aws-rl \
     trainer.experiment_name=${exp_name} \
     trainer.save_freq=25 \
     trainer.total_epochs=${total_epoches}

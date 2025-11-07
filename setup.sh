@@ -2,7 +2,6 @@
 set -euo pipefail
 
 # 0) Make a project + venv (Python 3.10)
-uv init --bare
 uv venv --python 3.10
 
 # 1) Add Torch (CUDA 12.4 index) — recorded in pyproject + lock
@@ -18,4 +17,7 @@ uv pip install --editable AgentGym/agentenv
 
 # 4) Pin extra runtime deps
 uv pip install transformers==4.51.3
+
+# 5) Install vllm correctly
+uv pip install vllm==0.6.3 --torch-backend=auto
 
