@@ -1,5 +1,10 @@
 [project]
 name = "agentgym-rl"
 version = "0.1.0"
-requires-python = ">=3.10"
-dependencies = []
+requires-python = ">=3.9"
+dependencies = [
+    "flash-attn",
+]
+
+[tool.uv.sources]
+flash-attn = { url = "https://github.com/Dao-AILab/flash-attention/releases/download/v2.7.3/flash_attn-2.7.3+cu12torch2.4cxx11abiFALSE-cp310-cp310-linux_x86_64.whl" }
