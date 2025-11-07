@@ -14,7 +14,7 @@ env_server_url="http://127.0.0.1:36001"
 # start training
 wandb login xxx
 
-pure_agent_model_name="Qwen2.5-7B-Instruct"
+pure_agent_model_name="Qwen2.5-3B-Instruct"
 agent_model_path="Qwen/${pure_agent_model_name}"
 
 kl_coef=0.001
@@ -25,7 +25,7 @@ ppo_mini_batch_size=8
 ppo_micro_batch_size_per_gpu=1
 ppo_inner_epochs=2
 
-total_epoches=30
+total_epoch=30
 
 model_save_dir="saves"
 mkdir -p ${model_save_dir}
@@ -64,6 +64,6 @@ HYDRA_FULL_ERROR=1 PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True WANDB_MODE=o
     trainer.project_name=aws-rl \
     trainer.experiment_name=${exp_name} \
     trainer.save_freq=25 \
-    trainer.total_epochs=${total_epoches}
+    trainer.total_epochs=${total_epoch}
 status=$?
 exit $status
